@@ -49,3 +49,35 @@ def write_words_to_file(filename, words):
     """
     with open(filename, 'w') as file:
         file.write(' '.join(words))
+
+# Function for console-based interaction
+def console_interaction():
+    """
+    Handle console-based interaction with the user.
+    The function prompts the user for words to translate until the user types 'exit'.
+    """
+    while True:
+        user_input = input("Enter a word (or 'exit' to quit): ")
+        if user_input.lower() == 'exit':
+            print("Thank you for using the Pig Latin Translator. Goodbye!")
+            break
+        translated_word = translate_word(user_input)
+        print(f"The Pig Latin translation is: {translated_word}")
+
+
+# Function for file-based interaction
+def file_interaction():
+    """
+    Handle file-based interaction.
+    The function reads words from 'input.txt', translates them, and writes the results to 'output.txt'.
+    """
+    input_filename = "input.txt"
+    output_filename = "output.txt"
+
+    words_to_translate = read_words_from_file(input_filename)
+    translated_words = translate_sentence(' '.join(words_to_translate))
+
+    write_words_to_file(output_filename, translated_words.split())
+    print(f"Translation completed. Check '{output_filename}' for the translated content.")
+
+    
