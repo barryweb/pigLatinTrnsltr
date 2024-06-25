@@ -80,4 +80,27 @@ def file_interaction():
     write_words_to_file(output_filename, translated_words.split())
     print(f"Translation completed. Check '{output_filename}' for the translated content.")
 
-    
+# Main function to handle the user's choice of interaction
+def main():
+    """
+    Main function to handle the flow of the application based on user input.
+    The user can choose between console interaction, file interaction, or exit the application.
+    """
+    while True:
+        choice = input("Enter your choice ('console', 'file', 'exit'): ").lower()
+        if choice == 'console':
+            console_interaction()
+            break
+        elif choice == 'file':
+            file_interaction()
+            break
+        elif choice == 'exit':
+            print("Exiting the Pig Latin Translator Application. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter 'console', 'file', or 'exit'.")
+
+
+# Entry point of the application
+if __name__ == "__main__":
+    main()
