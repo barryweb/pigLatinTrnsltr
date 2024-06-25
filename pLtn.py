@@ -31,3 +31,21 @@ def translate_sentence(sentence):
     translated_words = [translate_word(word) for word in words]
     return ' '.join(translated_words)
 
+# Function to read words from a file
+def read_words_from_file(filename):
+    """
+    Read a list of words from a given filename.
+    The function opens the file, reads its contents, and returns a list of words.
+    """
+    with open(filename, 'r') as file:
+        return file.read().split()
+
+
+# Function to write translated words to a file
+def write_words_to_file(filename, words):
+    """
+    Write a list of translated words to a given filename.
+    The function joins the list of words into a string and writes it to the file.
+    """
+    with open(filename, 'w') as file:
+        file.write(' '.join(words))
